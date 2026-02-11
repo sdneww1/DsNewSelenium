@@ -1,0 +1,12 @@
+.classpath
+.project
+.settings/
+target/
+logs/
+reports/
+test-output/
+allure-results/
+allure-report/
+/*.html
+/.metadata
+bin/ 
