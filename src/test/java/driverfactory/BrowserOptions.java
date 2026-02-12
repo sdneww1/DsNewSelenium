@@ -27,7 +27,7 @@ public class BrowserOptions {
 	public FirefoxOptions firefoxOption() {
 		FirefoxOptions options = new FirefoxOptions();
 		if (System.getenv("JENKINS_URL") != null)
-			options.addArguments("--headless");
+			//options.addArguments("--headless");
 		options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 		options.setAcceptInsecureCerts(true);
 		return options;

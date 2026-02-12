@@ -19,9 +19,6 @@ public class LoginPageSteps {
 	private HomePage homePage;
 	private LoginPage loginPage;
     WebDriver driver;
-
-
-	
 	
 	public LoginPageSteps() {
 		
