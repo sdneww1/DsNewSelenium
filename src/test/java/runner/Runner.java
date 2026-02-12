@@ -25,10 +25,18 @@ public class Runner extends AbstractTestNGCucumberTests {
         return super.scenarios();
     }
 
+ //   @BeforeClass
+//    @Parameters({"browserType"})
+//    public void beforeClass(@Optional("chrome") String browser) {
+//        LoggerFactory.getLogger(Runner.class).info("Running tests in browser: {}", browser);
+//        ConfigReader.setBrowserType(browser);
+//    }
     @BeforeClass
-    @Parameters({"browserType"})
-    public void beforeClass(@Optional("chrome") String browser) {
-        LoggerFactory.getLogger(Runner.class).info("Running tests in browser: {}", browser);
+    public void beforeClass() {
+        String browser = System.getProperty("browser", "chrome");
+        LoggerFactory.getLogger(Runner.class)
+            .info("Running tests in browser: {}", browser);
         ConfigReader.setBrowserType(browser);
     }
+
 }
