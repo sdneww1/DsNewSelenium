@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import driverfactory.DriverFactory;
-import pages.HomePage;
+import pages.LunchPage;
 import pages.LoginPage;
 import utils.ConfigReader;
 import utils.ExcelReader;
@@ -16,14 +16,14 @@ import io.cucumber.java.en.*;
 
 public class LoginPageSteps {
 	private static Logger logger = LogManager.getLogger();
-	private HomePage homePage;
+	private LunchPage homePage;
 	private LoginPage loginPage;
     WebDriver driver;
 	
 	public LoginPageSteps() {
 		
 		 driver = DriverFactory.getDriver();
-	        homePage = new HomePage(driver);
+	        homePage = new LunchPage(driver);
 	        loginPage = new LoginPage(driver);
 //		HomePage homePage = new HomePage(DriverFactory.getDriver());
 //		LoginPage loginPage = new LoginPage(DriverFactory.getDriver());

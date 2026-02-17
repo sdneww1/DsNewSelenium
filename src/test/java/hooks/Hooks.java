@@ -28,11 +28,7 @@ public class Hooks {
 		ConfigReader.loadProperties();
 	}
 
-//    @Before
-//    public void setup(Scenario scenario) {
-//        driver = DriverFactory.initBrowser(ConfigReader.getBrowserType());
-//        driver.get(ConfigReader.getUrl());
-//    }
+
 	@Before
 	public void setup(Scenario scenario) {
 		String browser = ConfigReader.getBrowserType(); // get browser type
@@ -57,3 +53,11 @@ public class Hooks {
 		DriverFactory.quitDriver();
 	}
 }
+
+
+
+//@Before
+//public void setup(Scenario scenario) {
+//  driver = DriverFactory.initBrowser(ConfigReader.getBrowserType());
+//  driver.get(ConfigReader.getUrl());
+//}

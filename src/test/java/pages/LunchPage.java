@@ -11,11 +11,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ConfigReader;
 import utils.WaitHelper;
 
-public class HomePage {
+public class LunchPage {
 
     public WebDriver driver;
     private WebDriverWait wait;
-    private static Logger logger = LogManager.getLogger(HomePage.class);
+    private static Logger logger = LogManager.getLogger(LunchPage.class);
 
     @FindBy(xpath = "//button[text()='Get Started']")
     private WebElement getStartedBtn;
@@ -26,7 +26,7 @@ public class HomePage {
     @FindBy(tagName = "p")
     private WebElement subHeading;
 
-    public HomePage(WebDriver driver) {
+    public LunchPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));

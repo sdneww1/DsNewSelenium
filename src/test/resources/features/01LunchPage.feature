@@ -4,11 +4,11 @@ Feature: DS Lunch page functionality
     Given User is in the NumpyNinja page
 
   @mainTitle
-  Scenario: User verifies the home page title
+  Scenario: User verifies the page title
     Then User Verify the heading "Preparing for the Interviews"
 
   @subTitle
-  Scenario: User verifies the home page title
+  Scenario: User verifies the page title
     Then User Verify the subheading "You are at the right place"
 
   @getstarted
