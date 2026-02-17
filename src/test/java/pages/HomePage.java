@@ -1,7 +1,6 @@
 package pages;
 
 import java.time.Duration;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -9,49 +8,55 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import utils.ConfigReader;
-
 import utils.WaitHelper;
 
-
 public class HomePage {
-	
-	public WebDriver driver;
-	WebDriverWait wait;
-	private static Logger logger = LogManager.getLogger();	
-	
-	 @FindBy(xpath = "//button[text()='Get Started']")
-	    private WebElement getStartedBtn;
-	 
-	 public HomePage(WebDriver driver) {
-			this.driver = driver;
-			PageFactory.initElements(driver, this);
-			this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		}
-	 
-	 
-	 // Common navigation
-	    public void navigateTo(String url) {
-	    	wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-			driver.get(ConfigReader.getUrl());
-	    }
 
-	    // Common page title
-	    public String getPageTitle() {
-	        return driver.getTitle();
-	    }
+    public WebDriver driver;
+    private WebDriverWait wait;
+    private static Logger logger = LogManager.getLogger(HomePage.class);
 
-	    // Click Get Started button
-	    public void clickGetStarted() {
-	        WaitHelper.waitForClickable(getStartedBtn).click();
-	    }
+    @FindBy(xpath = "//button[text()='Get Started']")
+    private WebElement getStartedBtn;
 
-	    // Verify Home Page title
-	    public boolean isHomePageDisplayed() {
-	        return getPageTitle().contains("NumpyNinja");
-	    }
+    @FindBy(tagName = "h1")
+    private WebElement heading;
 
+    @FindBy(tagName = "p")
+    private WebElement subHeading;
+
+    public HomePage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    }
+
+    public void navigateTo() {
+        driver.get(ConfigReader.getUrl());
+        logger.info("Navigated to Home Page");
+    }
+
+    public String getPageTitle() {
+        return driver.getTitle();
+    }
+
+    public String getHeadingText() {
+        return heading.getText();
+    }
+
+    public String getSubHeadingText() {
+        return subHeading.getText();
+    }
+
+    public void clickGetStarted() {
+        WaitHelper.waitForClickable(getStartedBtn).click();
+        logger.info("Clicked Get Started button");
+    }
+
+    public boolean isHomePageDisplayed() {
+        return getPageTitle().contains("NumpyNinja");
+    }
 }
 
 
