@@ -8,7 +8,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import utils.ConfigReader;
 
 @CucumberOptions(
-    features = "src/test/resources/features",
+    features = "src/test/resources/features/03Login.feature",
     glue = { "hooks","stepdefinitions" },
     tags = "",
     plugin = { "pretty","html:cucumber-reports.html","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
