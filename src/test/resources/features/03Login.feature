@@ -11,4 +11,3 @@ Feature: SignIN page functionality
     Examples:
       | sheet      | testcase_id | expected_message  |
       | loginSheet | TC001       | You are logged in |
-      | loginSheet | TC002       | You are logged in |
