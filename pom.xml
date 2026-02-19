@@ -184,8 +184,8 @@
             <artifactId>selenium-java</artifactId>
             <version>4.40.0</version>
         </dependency>
-
-        <!-- TestNG -->
+	
+		<!-- TestNG -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -193,7 +193,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Cucumber Java -->
+		<!-- Cucumber Java -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -201,14 +201,14 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Cucumber TestNG -->
+		<!-- Cucumber TestNG -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
             <version>7.34.2</version>
         </dependency>
 
-        <!-- PicoContainer (for DI) -->
+		<!-- PicoContainer (for DI) -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-picocontainer</artifactId>
@@ -216,32 +216,32 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Apache POI (Excel) -->
+		<!-- Apache POI (Excel) -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>5.4.1</version>
         </dependency>
 
- <!--        Logging 
+		<!--        Logging 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.21.0</version>
         </dependency>-->
-      <!--  <dependency>
+		<!--  <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>2.21.0</version>
         </dependency>-->
-        <!-- Source: https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+		<!-- Source: https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
 <dependency>
     <groupId>org.slf4j</groupId>
     <artifactId>slf4j-api</artifactId>
     <version>2.0.17</version>
     <scope>compile</scope>
 </dependency>
-<!-- Source: https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+		<!-- Source: https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
 <dependency>
     <groupId>ch.qos.logback</groupId>
     <artifactId>logback-classic</artifactId>
@@ -254,7 +254,7 @@
     <version>4.4</version>
 </dependency>
 
-        <!-- Allure -->
+		<!-- Allure -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-cucumber7-jvm</artifactId>
@@ -274,12 +274,40 @@
                     </suiteXmlFiles>
                     <systemPropertyVariables>
                         <allure.results.directory>target/allure-results</allure.results.directory>
+                         <allure.results.directory>target/allure-results</allure.results.directory>
                     </systemPropertyVariables>
                     <parallel>tests</parallel>
 					<threadCount>6</threadCount>
                 </configuration>
             </plugin>
+                			<!-- Cucumber reporting plugin -->
+
+            <plugin>
+				<groupId>net.masterthought</groupId>
+				<artifactId>maven-cucumber-reporting</artifactId>
+				<version>5.7.0</version>
+				<executions>
+					<execution>
+						<id>execution</id>
+						<phase>test</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<projectName>Selenium Cucumber Report</projectName>
+							<outputDirectory>
+								${project.build.directory}/cucumber-reports</outputDirectory>
+							<inputDirectory>
+								${project.build.directory}/jsonReports</inputDirectory>
+							<jsonFiles>
+								<param>**/*.json</param>
+							</jsonFiles>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
         </plugins>
     </build>
+  
 
 </project>

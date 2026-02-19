@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="SeleniumSuite" parallel="tests" thread-count="6">
+<suite name="SeleniumSuite" parallel="tests" thread-count="3">
 
-    
-	<test name="Alltest">
-		<classes>
-			<class name="runner.Runner" />
-		</classes>
-	</test>
-<!--	<test name="ChromeTests">
+	<test name="ChromeTests">
 		<parameter name="browserType" value="chrome" />
 		<classes>
 			<class name="runner.Runner" />
@@ -27,6 +21,6 @@
 		<classes>
 			<class name="runner.Runner" />
 		</classes>
-	</test>-->
+	</test>
 
 </suite>
